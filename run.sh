@@ -1,7 +1,8 @@
 #!/bin/bash
 set -e # Fail fast
 
-SYSTEM32_LOCATION=~/.local/share/Steam/steamapps/compatdata/1493710/pfx/drive_c/windows/system32/ # This changes sometimes, depending on proton version?
+STEAM_LOCATION=~/.local/share
+SYSTEM32_LOCATION=$STEAM_LOCATION/Steam/steamapps/compatdata/1493710/pfx/drive_c/windows/system32/ # This changes sometimes, depending on proton version?
 
 # Check if the dll already exists
 if [ -f "$SYSTEM32_LOCATION/ucrtbase.dll" ]; then
