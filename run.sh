@@ -14,7 +14,6 @@ rm -f $SYSTEM32_LOCATION/ucrtbase.dll # There might be a simlink to the "default
 
 folder="/tmp/fix-aoe"
 mkdir -p $folder && cd "$_"
-chmod 1777 . # Give permissions to the current user to write here
 echo "Fetching vc_redist.x64.exe"
 wget https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe
 cabextract vc_redist.x64.exe --filter a10
