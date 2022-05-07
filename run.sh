@@ -2,7 +2,7 @@
 set -e # Fail fast
 
 STEAM_LOCATION=/home/$USER/.local/share
-SYSTEM32_LOCATION=$STEAM_LOCATION/Steam/steamapps/compatdata/1493710/pfx/drive_c/windows/system32 # This changes sometimes, depending on proton version?
+SYSTEM32_LOCATION=$STEAM_LOCATION/Steam/steamapps/compatdata/813780/pfx/drive_c/windows/system32
 
 # Check if the dll already exists and is not a symlink
 if [ -f "$SYSTEM32_LOCATION/ucrtbase.dll" ] && [ ! -L "$SYSTEM32_LOCATION/ucrtbase.dll" ]; then
