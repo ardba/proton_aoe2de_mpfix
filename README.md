@@ -5,7 +5,7 @@ This script checks if ucrtbase.dll is installed for AoE2: DE then installs it if
 location/of/script/run.sh ; %command%
 ```
 
-for example, if you cloned the repo to youe $HOME directory,
+for example, if you cloned the repo to your $HOME directory,
 
 ```
 ~/proton_aoe2de_mpfix/run.sh ; %command%
