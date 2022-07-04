@@ -14,3 +14,4 @@ for example, if you cloned the repo to your $HOME directory,
 ## Dependencies
 - cabextract
 - wget
+- jq (optional, required to automatically fetch Steam App ID)
