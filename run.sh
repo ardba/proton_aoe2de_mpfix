@@ -1,9 +1,15 @@
 #!/bin/bash
 set -e # Fail fast
 
-STEAM_LOCATION=/home/$USER/.local/share
+# check if we got an argument
+if [ $# -eq 0 ]; then
+# set STEAM_LOCATION to the provided argument
+	STEAM_LOCATION="$1"
+# else set STEAM_LOCATION to default
+else
+	STEAM_LOCATION="/home/$USER/.local/share"
+fi
 SYSTEM32_LOCATION=$STEAM_LOCATION/Steam/steamapps/compatdata/813780/pfx/drive_c/windows/system32
-
 # Check if the dll already exists and is not a symlink
 if [ -f "$SYSTEM32_LOCATION/ucrtbase.dll" ] && [ ! -L "$SYSTEM32_LOCATION/ucrtbase.dll" ]; then
     echo "ucrtbase.dll is already installed"

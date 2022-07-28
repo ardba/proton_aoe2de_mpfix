@@ -11,6 +11,8 @@ for example, if you cloned the repo to your $HOME directory,
 ~/proton_aoe2de_mpfix/run.sh ; %command%
 ```
 
+You can pass an argument to the script to specify the location of steam on your device (default:/home/$USER/.local/share )
+
 ## Dependencies
 - cabextract
 - wget
