@@ -1,8 +1,16 @@
 #!/bin/bash
 set -e # Fail fast
 
+# Check if jq is installed, then fetch the App ID if it is
+if command -v jq &> /dev/null
+then
+    APPID=$(wget -qO- https://api.steampowered.com/ISteamApps/GetAppList/v2/ | jq '.applist.apps[] | select(.name=="Age of Empires II: Definitive Edition")' | jq ".appid")
+else
+    APPID=813780 # The most recent App ID when this was written
+fi
+
 STEAM_LOCATION=/home/$USER/.local/share
-SYSTEM32_LOCATION=$STEAM_LOCATION/Steam/steamapps/compatdata/813780/pfx/drive_c/windows/system32
+SYSTEM32_LOCATION=$STEAM_LOCATION/Steam/steamapps/compatdata/$APPID/pfx/drive_c/windows/system32
 
 # Check if the dll already exists and is not a symlink
 if [ -f "$SYSTEM32_LOCATION/ucrtbase.dll" ] && [ ! -L "$SYSTEM32_LOCATION/ucrtbase.dll" ]; then
