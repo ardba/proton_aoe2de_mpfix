@@ -9,7 +9,7 @@ else
     APPID=813780 # The most recent App ID when this was written
 fi
 
-STEAM_LOCATION="/home/$USER/.local/share"
+STEAM_LOCATION="/home/$USER/.steam/steam"
 
 # check if arguments are not empty
 if [ ! $# -eq 0 ]; then
@@ -17,7 +17,21 @@ if [ ! $# -eq 0 ]; then
     STEAM_LOCATION=$1
 fi
 
-SYSTEM32_LOCATION=$STEAM_LOCATION/Steam/steamapps/compatdata/$APPID/pfx/drive_c/windows/system32
+libraries=$(grep 'path' $STEAM_LOCATION/steamapps/libraryfolders.vdf | sed -re 's/^(\s)+"path"(\s)+"(.*)"$/\3/g')
+
+echo "Found steam library locations:"
+for library in $libraries; do
+  echo " * $library"
+done
+
+for library in $libraries; do
+  SYSTEM32_LOCATION="$library/steamapps/compatdata/$APPID/pfx/drive_c/windows/system32"
+
+  if [ -d "$SYSTEM32_LOCATION" ]; then
+    echo "Found app in: $SYSTEM32_LOCATION"
+    break
+  fi
+done;
 
 # Check if the dll already exists and is not a symlink
 if [ -f "$SYSTEM32_LOCATION/ucrtbase.dll" ] && [ ! -L "$SYSTEM32_LOCATION/ucrtbase.dll" ]; then
