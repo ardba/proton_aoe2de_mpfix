@@ -1,0 +1,13 @@
+diff --git a/run.sh b/run.sh
+index 7fb44cb..b0f6009 100755
+--- a/run.sh
++++ b/run.sh
+@@ -1,4 +1,7 @@
+-#!/bin/bash
++#!/usr/bin/env nix-shell
++#! nix-shell -i bash
++#! nix-shell -p bash jq cabextract wget
++
+ set -e # Fail fast
+ 
+ # Check if jq is installed, then fetch the App ID if it is
