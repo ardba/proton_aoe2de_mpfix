@@ -1,4 +1,4 @@
-# Multiplayer fix for AoE 2: DE
+# Multiplayer fix for AoE 2: DE (ucrtbase fix, Works for Halo Master Chief Collection)
 This script checks if ucrtbase.dll is installed for AoE2: DE then installs it if necessary. To run automatically before launching AoE, set your Steam launch options to
 
 ```
