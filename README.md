@@ -13,6 +13,18 @@ for example, if you cloned the repo to your $HOME directory,
 
 if %steam_location% is not set, the script will default to /home/$USER/.local/share
 
+## Usage
+
+```
+Usage: ./run.sh [OPTIONS]...
+Small script containing Multiplayer fix for AOE2 Definitive Edition.
+
+Options:
+    -h, --help                    print this text and exit
+    -l, --steam-location <PATH>   path to your Steam installation
+    -f, --force                   forcefully repatch AOE2DE
+```
+
 ## Dependencies
 - cabextract
 - wget
